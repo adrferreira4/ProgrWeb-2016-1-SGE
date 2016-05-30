@@ -50,7 +50,8 @@ div#barra-superior li a:hover{
 }
 
 div#barra-superior .active{
-	background-color: #718FC8;
+	background-color: #B2D1DC;
+	style: bold;
 }
 
 
@@ -62,6 +63,19 @@ div#conteudo{
 	float: right;
 	width: 84%;
 	height:100%;
+	margin: 5px 0 0 0;
+}
+
+div#conteudo form{
+	margin: 5px;
+}
+
+div#conteudo p{
+	margin: 5px;
+}
+
+div#conteudo th{
+	margin: 5px;
 }
 
 
@@ -109,7 +123,7 @@ div#barra-lateral li a:hover{
 }
 
 div#barra-lateral .active{
-	background-color: #718FC8;
+	background-color: #B2D1DC;
 	color: white;
 }
 
