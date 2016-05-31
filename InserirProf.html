@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>SGE - Sistema de Gestão Escolar</title>
+<link rel="stylesheet" type="text/css" href="cabecalho	.css">
+<link rel="stylesheet" type="text/css" href="template.css">
+
+</head>
+
+
+<body>
+
+<!-- Codigo da imagem de topo, ver pesonalização no css-->
+
+<div id="cabecalho">
+	<ul>
+<a href="Home.html"> SGE - Sistema de Gestão Escolar</a></ul>
+</div>
+
+<!-- Codigo da marcação em branco no cabecalho, ver personalizacao no css -->
+
+<div id="marcador">
+
+</div>
+
+
+<!-- Codigo da barra superior, ver personalização no css. Quando mudar mudar a página, adicionar a class active no link da pagina -->
+
+<div id="barra-superior">	
+	<ul>
+	<li><a href="PagAluno.html">Aluno</a></li>
+	<li><a href="PagProf.html" class="active">Professor</a></li>
+	<li><a href="PagTurmas.html">Turmas</a></li>
+	<li><a href="PagDisc.html">Disciplinas</a></li>
+	</ul>
+
+</div>
+
+<div id="marcador">
+
+</div>
+
+
+<!-- Codigo da barra lateral, ver personalização no css -->
+<div id="barra-lateral">
+	<ul>
+		<li><div id="login-image">
+		<img src="images/login-image.png">
+		<a href="Perfil.html">Usuario</a>
+
+		</div>
+</li>
+		<li><h1>Funções</h1></li>
+		<li><a href="InserirProf.html">Inserir Professor</a></li>
+		<li><a href="ListarProf.html">Listar Professores</a></li>
+		<li><a href="VinculosProf.html">Vinculos dos Professores</a></li>
+	</ul>
+
+<!-- Codigo do conteudo da pagina, edicoes aqui, ver personalizacao no css -->
+</div>
+
+<div id="conteudo" style="display:block">
+	<h2>Cadastrar Professor</h2>
+
+<br>
+
+<form >
+	Nome: <br><input type="text" name="nome"><br><br>
+	CPF: <br><input type="text" name="cpf"><br><br>
+	Sexo: <br><select name="sexo">
+	<option value="F">Feminino</option>
+	<option value="M">Masculino</option>
+	</select>
+	<br><br>
+	<input type="submit" value="Gravar">
+</form>
+<br><br><br><br><br><br>
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
