@@ -76,6 +76,7 @@ div#conteudo p{
 
 div#conteudo th{
 	margin: 5px;
+	
 }
 
 
@@ -99,7 +100,7 @@ div#barra-lateral ul {
 	width: 15%;
 	background-color: #616C85;
 	height: 100%;
-	position: fixed;
+	position: absolute;
 	overflow: auto;
 }
 

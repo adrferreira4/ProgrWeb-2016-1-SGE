@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
 <title>SGE - Sistema de Gestão Escolar</title>
 <link rel="stylesheet" type="text/css" href="cabecalho	.css">
 <link rel="stylesheet" type="text/css" href="template.css">
@@ -26,15 +25,19 @@
 </div>
 
 
-<!-- Codigo da barra superior, ver personalização no css -->
+<!-- Codigo da barra superior, ver personalização no css. Quando mudar mudar a página, adicionar a class active no link da pagina -->
 
 <div id="barra-superior">	
 	<ul>
-	<li><a href="PagAluno.html">Aluno</a></li>
+	<li><a href="PagAluno.html" class="active">Aluno</a></li>
 	<li><a href="PagProf.html">Professor</a></li>
 	<li><a href="PagTurmas.html">Turmas</a></li>
 	<li><a href="PagDisc.html">Disciplinas</a></li>
 	</ul>
+
+</div>
+
+<div id="marcador">
 
 </div>
 
@@ -49,19 +52,51 @@
 		</div>
 </li>
 		<li><h1>Funções</h1></li>
-		<li><a href="InserirProf.html">Inserir Professor</a></li>
-		<li><a href="ListarProf.html">Listar Professores</a></li>
-		<li><a href="VinculosProf.html">Vinculos dos Professores</a></li>
+		<li><a href="CadAluno.html">Cadastrar Aluno</a></li>
+		<li><a href="DadosAluno.html">Listar Dados</a></li>
 	</ul>
 
 <!-- Codigo do conteudo da pagina, edicoes aqui, ver personalizacao no css -->
 
 <div id="conteudo">
-	<p>Texto aqui</p>
+	<p>Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui Texto aqui</p>
+
+<br><br><br><br><br><br>
+
+<form action="demo_form.asp">
+	Nome: <br><input type="text" name="nome"><br><br>
+	CPF: <br><input type="text" name="cpf"><br><br>
+	Sexo: <br><select name="sexo">
+	<option value="F">Feminino</option>
+	<option value="M">Masculino</option>
+	</select>
+	<br><br>
+	<input type="submit" value="Gravar">
+</form>
+<br><br><br><br><br><br>
+<table style="width:100%">
+  <tr>
+    <th><center>Nome</th>
+    <th><center>CPF</th>		
+    <th><center>Sexo</th>
+  </tr> 
+ <tr>
+    <td><center>Marcella Toledo</td>		
+    <td><center>00000000000</td>
+    <td><center>Feminino</td>
+  </tr>
+  <tr>
+    <td><center>Heitor Vila Lobos</td>		
+    <td><center>111111111111</td>
+    <td><center>Masculino</td>
+  </tr>
+
+</table>
+
 </div>
 
-
 </div>
+
 
 
 
