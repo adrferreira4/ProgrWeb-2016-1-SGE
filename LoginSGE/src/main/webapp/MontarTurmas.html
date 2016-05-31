@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SGE - Sistema de Gestão Escolar</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+
+
+</head>
+
+
+<body>
+
+<!-- Codigo da imagem de topo, ver pesonaliza��o no css-->
+
+<div id="cabecalho">
+    <ul>
+        <a href="Home.html"> SGE - Sistema de Gestão Escolar</a></ul>
+</div>
+<!-- Codigo da marca��o em branco no cabecalho, ver personalizacao no css -->
+
+<div id="marcador">
+
+</div>
+
+
+<!-- Codigo da barra superior, ver personaliza��o no css. Quando mudar mudar a p�gina, adicionar a class active no link da pagina -->
+
+<div id="barra-superior">
+    <ul>
+        <li><a href="PagAluno.html">Aluno</a></li>
+        <li><a href="PagProf.html" >Professor</a></li>
+        <li><a href="PagTurmas.html" class="active">Turmas</a></li>
+        <li><a href="PagDisc.html">Disciplinas</a></li>
+    </ul>
+
+</div>
+
+<div id="marcador">
+
+</div>
+
+
+<!-- Codigo da barra lateral, ver personaliza��o no css -->
+<div id="barra-lateral">
+    <ul>
+        <li><div id="login-image">
+            <img src="images/login-image.png">
+            <a href="Perfil.html">Usuario</a>
+
+        </div>
+        </li>
+        <li><h1>Funções</h1></li>
+        <li class="active"><a href="MontarTurmas.html">Montar Turma</a></li>
+        <li><a href="ListarTurmas.html">Listar Turmas</a></li>
+        <li><a href="EditarTurmas.html">Editar Turma</a></li>
+    </ul>
+
+    <!-- Codigo do conteudo da pagina, edicoes aqui, ver personalizacao no css -->
+    </div>
+    <div id="conteudo">
+
+        <form id="cadTurma">
+
+            <p><label for="cProf">Professor: <br></label>
+                <input type="text" name="tProf" id="cProf" maxlength="40" size="25" placeholder="Selecione o Professor" list="professores"/></p>
+            <datalist id="professores">
+                <option value="Professor">Professor Cadastrado</option>
+            </datalist>
+            <p><label for="cDisc">Disciplina: <br></label>
+                <input type="text" name="tDisc" id="cDisc" maxlength="40" size="25" placeholder="Selecione a Disciplina" list="Disciplina"/></p>
+            <datalist id="Disciplina">
+                <option value="Disciplina">Disciplina Cadastrada</option>
+                <option value="Matemática">Disciplina Cadastrada</option>
+                <option value="Português">Disciplina Cadastrada</option>
+            </datalist>
+            <p>Ano: <br><input type="text" name="ano"><br></p>
+            <p>Periodo: <br><select name="periodo"></p>
+            <option value="M">Matutino</option>
+            <option value="V">Vespertino</option>
+            </select>
+            <p>Semestre: <br><select name="semestre"></p>
+            <option value="Primerio">1º Semestre</option>
+            <option value="Segundo">2º Semestre</option>
+            </select>
+
+
+            <br><br>
+            <input type="submit" value="Gravar">
+
+        </form>
+
+    </div>
+</body>
+
+</html>
