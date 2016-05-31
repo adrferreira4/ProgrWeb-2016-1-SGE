@@ -17,15 +17,15 @@
 					<form>
 						<h1>Login Administrativo</h1>
 						<p>
-							<label for="username" class="uname">Usu·rio </label> 
-							<input id="username" name="username" required="required" type="text" placeholder="Insira seu usu·rio aqui..." />
+							<label for="username" class="uname">Usu√°rio </label> 
+							<input id="username" name="username" required="required" type="text" placeholder="Insira seu usu√°rio aqui..." />
 						</p>
 						<p>
 							<label for="password" class="youpasswd">Senha </label> 
 							<input id="password" name="password" required="required" type="password" placeholder="Insira sua senha aqui..." />
 						</p>
-						<p class="login button">
-							<input type="submit" value="Login" />
+						<p class="login button" id="loginButton">
+							<input type="button" value="Login" />
 						</p>
 						<p class="change_link">
 							<a href="EsqueceuSenha.jsp" class="to_register">Esqueci minha senha</a>
@@ -35,6 +35,11 @@
 				
 			</div>
 		</div>
+		<script type="text/javascript">
+    			document.getElementById("loginButton").onclick = function () {
+        			location.href = "PagInicial.html";
+    			};
+		</script>
 		</section>
 	</div>
 </body>
