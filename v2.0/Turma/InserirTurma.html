@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="../template.css">
+
+
+</head>
+
+
+<body>
+
+<div id="conteudoInserirTurma">
+
+    <form id="cadastroTurma">
+
+        <p>
+            <label for="cProf">Professor: <br></label>
+            <input type="text" name="tProf" id="cProf" maxlength="40" size="25" placeholder="Selecione o Professor" list="professores"/>
+        </p>
+        <datalist id="professores">
+            <option value="Professor">Professor Cadastrado</option>
+        </datalist>
+
+        <p>
+            <label for="cDisc">Disciplina: <br></label>
+            <input type="text" name="tDisc" id="cDisc" maxlength="40" size="25" placeholder="Selecione a Disciplina" list="Disciplina"/>
+        </p>
+        <datalist id="Disciplina">
+            <option value="Disciplina">Disciplina Cadastrada</option>
+            <option value="Matemática">Disciplina Cadastrada</option>
+            <option value="Português">Disciplina Cadastrada</option>
+        </datalist>
+
+        <p>
+            Ano: <br><input type="text" name="ano"><br>
+        </p>
+
+        <p>
+            Periodo: <br>
+            <select name="periodo">
+                <option value="M">Matutino</option>
+                <option value="V">Vespertino</option>
+            </select>
+        </p>
+
+        <p>
+            Semestre: <br>
+            <select name="semestre">
+                <option value="Primerio">1º Semestre</option>
+                <option value="Segundo">2º Semestre</option>
+            </select>
+        </p>
+
+
+        <br><br>
+        <input type="submit" value="Gravar">
+
+    </form>
+
+</div>
+</body>
+
+</html>
