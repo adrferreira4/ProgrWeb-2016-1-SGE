@@ -13,6 +13,7 @@ public class DAO {
 	public static PreparedStatement criarConexao(String sql){
 		try {
 			conexaoComOBanco = DriverManager.getConnection(URL);
+			conexaoComOBanco.setAutoCommit(false);
 			return conexaoComOBanco.prepareStatement(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -21,14 +22,16 @@ public class DAO {
 		return null;
 	}
 	
-	public static void executarInstrucaoSql(PreparedStatement statement){
+	public static void executarInstrucaoSql(PreparedStatement statement) throws Throwable{
 		try {
 			statement.executeUpdate();
+			conexaoComOBanco.commit();
+			
 			statement.close();
 			conexaoComOBanco.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Throwable e) {
+			conexaoComOBanco.rollback();
+			throw e;
 		}
 	}
 }
