@@ -1,0 +1,15 @@
+Icones:
+http://fontawesome.io/icons/
+
+
+http://fontawesome.io/icon/external-link-square/
+http://fontawesome.io/icon/share-alt/
+http://fontawesome.io/icon/thumbs-o-down/
+http://fontawesome.io/icon/thumbs-o-up/
+http://fontawesome.io/icon/user/
+http://fontawesome.io/icon/folder-open/
+http://fontawesome.io/icon/sitemap/
+http://fontawesome.io/icon/graduation-cap/
+http://fontawesome.io/icon/cog/
+http://fontawesome.io/icon/folder/
+http://fontawesome.io/icon/university/

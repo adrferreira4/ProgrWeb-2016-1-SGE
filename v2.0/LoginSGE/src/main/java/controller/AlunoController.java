@@ -3,19 +3,19 @@ package controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.text.spi.DateFormatProvider;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JSpinner.DateEditor;
 import javax.swing.text.DateFormatter;
 
-import Padrao.AlunoDao;
+import dao.AlunoDao;
 
+@WebServlet("/CadastrarDiscente")
 public class AlunoController extends HttpServlet{
 
 	
@@ -27,32 +27,33 @@ public class AlunoController extends HttpServlet{
 			String op = Controller.valor(req, "operacao", "");
 			
 			//Parametros
-			int matricula = Controller.toInt(req, "matricula", "0");
-			String nome = Controller.valor(req, "nome", "");
-			String nomeMae = Controller.valor(req, "nomeMae", "");
-			String nomePai = Controller.valor(req, "nomePai", "");
+			int matricula = 999; // Controller.toInt(req, "matricula", "0");
+			String nome = Controller.valor(req, "fullname", "");
+			String nomeMae = Controller.valor(req, "mothername", "");
+			String nomePai = Controller.valor(req, "fathername", "");
 			String cep = Controller.valor(req, "cep", "");
 			String endereco = Controller.valor(req, "endereco", "");
-			Date dtNascimento = formatadorDeData.parse(Controller.valor(req, "dtNascimento", ""));
+			Date dtNascimento = formatadorDeData.parse(Controller.valor(req, "dataNascimento", "01-01-1800"));
 
 			
 			//Checagem e execução da operação
 			if (op.equals("incluir")) {
-				dao.AlunoDao.InserirAluno(matricula, nome, serie); 
+				AlunoDao.InserirAluno(matricula, nome, nomeMae, nomePai, cep, endereco, dtNascimento); 
 				msg = "Inclusão realizada com sucesso.";
 			} else if (op.equals("alterar")) {
-				dao.AlunoDao.AlterarALuno(matricula, nome);
-				msg = "AlteraÃ§Ã£o realizada com sucesso.";
+				AlunoDao.AlterarAluno(matricula, nome, nomeMae, nomePai, cep, endereco, dtNascimento);
+				msg = "Alteração realizada com sucesso.";
 			} else if (op.equals("excluir")) {
-				dao.AlunoDao.ExlcuirAluno(matricula);
-				msg = "ExclusÃ£o realizada com sucesso.";
+				AlunoDao.ExlcuirAluno(matricula);
+				msg = "Exclusão realizada com sucesso.";
 			} else if (op.equals("")) {
 				msg = "";
+				req.getRequestDispatcher("cadastro_discente.jsp").forward(req, resp);
 			} else {
 				throw new IllegalArgumentException("Operação \"" + op + "\" não suportada.");
 			}
 			req.setAttribute("msg", msg);
-			req.getRequestDispatcher("AlunoView.jsp").forward(req, resp);
+			
 		} catch (Exception e) {
 			e.printStackTrace(resp.getWriter());
 		}
