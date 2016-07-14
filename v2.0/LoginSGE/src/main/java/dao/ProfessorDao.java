@@ -3,28 +3,29 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import classes.Professor;
+
+
 public class ProfessorDao {
 
-	public static void InserirProfessor(int matricula, String nome, String cpf, String sexo) {
-		PreparedStatement statement = DAO.criarConexao("INSERT INTO PROFESSOR VALUES(?, ?, ?, ?)");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("sge");
+	
+	private static EntityManager em;
+	
+	public static void InserirProfessor(String nome, String cpf, String sexo) {
 		
-		try {
-			statement.setInt(1, matricula);		//Seta os parametros do SQL
-			statement.setString(2, nome);
-			statement.setString(3, cpf);
-			statement.setString(4, sexo);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Professor prof = new Professor(nome, cpf, sexo);
 		
-		try {
-			DAO.executarInstrucaoSql(statement);
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}				
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(prof);
+		em.getTransaction().commit();
+		em.close();
+		
 	}
 	
 	public static void AlterarProfessor(int matricula, String nome, String cpf, String sexo) {

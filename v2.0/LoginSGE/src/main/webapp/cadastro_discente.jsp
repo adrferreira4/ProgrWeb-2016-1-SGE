@@ -122,8 +122,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="/CadastrarDiscente">Cadastro Discente</a></li>
-                        <li><a class="" href="gestao_discente.html">Gest√£o Discente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDiscente">Cadastro Discente</a></li>
+                        <li><a class="" href="gestao_discente.html">Gest„o Discente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -217,7 +217,7 @@
                         <header class="panel-heading">Formulario de Cadastro Discente</header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="/ProgrWeb/CadastrarDiscente">
+                                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="CadastrarDiscente">
                                     <div class="form-group ">
                                         <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
                                         <div class="col-lg-10">
@@ -256,8 +256,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
-                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir">Salvar</button>
-                                            <button class="btn btn-default" type="button">Cancelar</button>
+                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
+                                            <button class="btn btn-default" type="button">Cancelar</button> 
                                         </div>
                                     </div>
                                 </form>

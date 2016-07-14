@@ -1,7 +1,10 @@
 var Script = function () {
 
     $.validator.setDefaults({
-        submitHandler: function() { alert("submitted!"); }
+        submitHandler: function() { 
+        	document.getElementById("#").submit();
+        	alert("submitted!"); 
+        	}
     });
 
     $().ready(function() {

@@ -33,5 +33,6 @@
 			<attribute name="maven.scope" value="provided"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JPA"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

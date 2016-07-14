@@ -1,85 +1,67 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import classes.Aluno;
+
 import java.util.Date;
 
 public class AlunoDao {
 	
-	public static void InserirAluno(int matricula, String nome, String nomeMae, String nomePai, String cep, String endereco, Date dtNasc)  {
-		PreparedStatement statement = DAO.criarConexao("INSERT INTO ALUNO VALUES(?, ?, ?, ?, ?, ?, ?)");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("sge");
+	
+	private static EntityManager em;
+	
+	public static void InserirAluno(String nome, String nomeMae, String nomePai, String cep, String endereco, Date dtNasc)  {
 		
-		try {
-			statement.setInt(1, matricula);		//Seta os parametros do SQL
-			statement.setString(2, nome);
-			statement.setString(3, nomeMae);
-			statement.setString(4, nomePai);
-			statement.setString(5, cep);
-			statement.setString(6, endereco);
-			statement.setDate(7, new java.sql.Date(dtNasc.getTime()));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			DAO.executarInstrucaoSql(statement);
-		} catch (Throwable e) {
-			//Ocorreu um erro
-			e.printStackTrace();
-		}				
+		Aluno student = new Aluno(nome, nomeMae, nomePai, cep, endereco, new java.sql.Date(dtNasc.getTime()));
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(student);
+		em.getTransaction().commit();
+		em.close();
 	}
 
 	public static void ExlcuirAluno(int matricula) {
-		PreparedStatement statement = DAO.criarConexao("DELETE ALUNO WHERE MATRICULA = ?");
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
 		
-		try {
-			statement.setInt(1, matricula);		//Seta os parametros do SQL
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			DAO.executarInstrucaoSql(statement);
-		} catch (Throwable e) {
-			//Ocorreu um erro
-			e.printStackTrace();
-		}
+		Aluno removido = em.find(Aluno.class, matricula);
+		em.remove(removido);
+		em.getTransaction().commit();
+		em.close();
 	}
 
-	public static void AlterarAluno(int matricula, String nome, String nomeMae, String nomePai, String cep,
-			String endereco, Date dtNascimento) {
-		PreparedStatement statement = DAO.criarConexao("   UPDATE ALUNO SET 		"
-											   + "		NOME = ?,			"
-											   + "		NOME_MAE = ?,		"
-											   + "		NOME_PAI = ?,		"
-											   + "		CEP = ?,			"
-											   + "		ENDERECO = ?,		"
-											   + "		DATA_NASCIMENTO = ? "
-											   + "  WHERE MATRICULA = ?		");
+	public static void AlterarAluno(int matricula, String nome, String nomeMae, String nomePai, String cep, String endereco, Date dtNascimento) {
 		
-		try {
-				//Seta os parametros do SQL
-			statement.setString(1, nome);
-			statement.setString(2, nomeMae);
-			statement.setString(3, nomePai);
-			statement.setString(4, cep);
-			statement.setString(5, endereco);
-			statement.setDate(6, new java.sql.Date(dtNascimento.getTime()));
+		Aluno student = new Aluno(nome, nomeMae, nomePai, cep, endereco, new java.sql.Date(dtNascimento.getTime()));
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
+		em.refresh(student);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	public static List<Aluno> listar() throws SQLException, ParseException {
 			
-			statement.setInt(7, matricula);	
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		em = emf.createEntityManager();
 		
-		try {
-			DAO.executarInstrucaoSql(statement);
-		} catch (Throwable e) {
-			//Ocorreu um erro
-			e.printStackTrace();
-		}	
+		String jpql = "from ALUNO";
+		
+		TypedQuery<Aluno> query = em.createQuery(jpql, Aluno.class);
+		
+		List<Aluno> alunos = query.getResultList();
+		
+		return alunos;
 	}
 	
 

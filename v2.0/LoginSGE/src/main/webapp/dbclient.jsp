@@ -5,6 +5,7 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.ResultSetMetaData"%>
+<%@page import="java.sql.Types"%>
 <%!String val(javax.servlet.http.HttpServletRequest request, String param) {
   return val(request, param, "");
 }%>

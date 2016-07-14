@@ -27,19 +27,20 @@ public class AlunoController extends HttpServlet{
 			String op = Controller.valor(req, "operacao", "");
 			
 			//Parametros
-			int matricula = 999; // Controller.toInt(req, "matricula", "0");
+			int matricula = Controller.toInt(req, "matricula", "0");
 			String nome = Controller.valor(req, "fullname", "");
 			String nomeMae = Controller.valor(req, "mothername", "");
 			String nomePai = Controller.valor(req, "fathername", "");
 			String cep = Controller.valor(req, "cep", "");
 			String endereco = Controller.valor(req, "endereco", "");
-			Date dtNascimento = formatadorDeData.parse(Controller.valor(req, "dataNascimento", "01-01-1800"));
+			Date dtNascimento = Controller.toDate(req,"dataNascimento");
 
 			
 			//Checagem e execução da operação
 			if (op.equals("incluir")) {
-				AlunoDao.InserirAluno(matricula, nome, nomeMae, nomePai, cep, endereco, dtNascimento); 
+				AlunoDao.InserirAluno(nome, nomeMae, nomePai, cep, endereco, dtNascimento); 
 				msg = "Inclusão realizada com sucesso.";
+				req.getRequestDispatcher("gestao_discente.html").forward(req, resp);
 			} else if (op.equals("alterar")) {
 				AlunoDao.AlterarAluno(matricula, nome, nomeMae, nomePai, cep, endereco, dtNascimento);
 				msg = "Alteração realizada com sucesso.";
@@ -55,6 +56,7 @@ public class AlunoController extends HttpServlet{
 			req.setAttribute("msg", msg);
 			
 		} catch (Exception e) {
+			String mensagem = e.getMessage();
 			e.printStackTrace(resp.getWriter());
 		}
 	}
