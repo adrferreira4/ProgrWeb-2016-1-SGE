@@ -102,12 +102,12 @@
     </header>
     <!--header end-->
 
-    <!--In√≠cio da Barra Lateral-->
+        <!--InÌcio da Barra Lateral-->
     <aside>
         <div id="sidebar"  class="nav-collapse ">
 
 
-            <!-- In√≠cio da Barra de Menu Lateral-->
+            <!-- InÌcio da Barra de Menu Lateral-->
             <ul class="sidebar-menu">
                 <li class="active">
                     <a class="" href="index.html">
@@ -122,7 +122,7 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="/ProgrWeb/CadastrarDiscente">Cadastro Discente</a></li>
+                        <li><a class="" href="cadastro_discente.jsp">Cadastro Discente</a></li>
                         <li><a class="" href="gestao_discente.html">Gest„o Discente</a></li>
                     </ul>
                 </li>
@@ -134,8 +134,8 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="cadastro_docente.html">Cadastro Docente</a></li>
-                        <li><a class="" href="gestao_docente.html">Gest√£o Docente</a></li>
+                        <li><a class="" href="cadastro_docente.jsp">Cadastro Docente</a></li>
+                        <li><a class="" href="gestao_docente.html">Gest„o Docente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -145,8 +145,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_turma.html">Cadastro Turma</a></li>
-                        <li><a class="" href="gestao_turma.html">Gest√£o Turma</a></li>
+                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
+                        <li><a class="" href="gestao_turma.html">Gest„o Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -156,26 +156,26 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_disciplina.html">Cadastro Disciplina</a></li>
-                        <li><a class="" href="gestao_disciplina.html">Gest√£o Disciplina</a></li>
+                        <li><a class="" href="cadastro_disciplina.jsp">Cadastro Disciplina</a></li>
+                        <li><a class="" href="gestao_disciplina.html">Gest„o Disciplina</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_table"></i>
-                        <span>Avalia√ß√£o</span>
+                        <span>AvaliaÁ„o</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
                         <li><a class="" href="notas_frequencia.html">Notas e Frequencia</a></li>
-                        <li><a class="" href="historico.html">Hist√≥rico</a></li>
+                        <li><a class="" href="historico.html">HistÛrico</a></li>
 
                     </ul>
                 </li>
                 <li>
                     <a class="" href="graficos.html">
                         <i class="icon_piechart"></i>
-                        <span>Gr√°ficos</span>
+                        <span>Gr·ficos</span>
 
                     </a>
 
@@ -183,7 +183,7 @@
                 <li>
                     <a class="" href="gestao_usuarios.html">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <span>Usu√°rios</span>
+                        <span>Usu·rios</span>
 
                     </a>
 

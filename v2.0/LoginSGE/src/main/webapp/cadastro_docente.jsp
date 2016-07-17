@@ -102,12 +102,12 @@
     </header>
     <!--header end-->
 
-    <!--In√≠cio da Barra Lateral-->
+           <!--InÌcio da Barra Lateral-->
     <aside>
         <div id="sidebar"  class="nav-collapse ">
 
 
-            <!-- In√≠cio da Barra de Menu Lateral-->
+            <!-- InÌcio da Barra de Menu Lateral-->
             <ul class="sidebar-menu">
                 <li class="active">
                     <a class="" href="index.html">
@@ -123,7 +123,7 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" href="cadastro_discente.jsp">Cadastro Discente</a></li>
-                        <li><a class="" href="gestao_discente.html">Gest√£o Discente</a></li>
+                        <li><a class="" href="gestao_discente.html">Gest„o Discente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -134,8 +134,8 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="general.html">Cadastro Docente</a></li>
-                        <li><a class="" href="buttons.html">Gest√£o Docente</a></li>
+                        <li><a class="" href="cadastro_docente.jsp">Cadastro Docente</a></li>
+                        <li><a class="" href="gestao_docente.html">Gest„o Docente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -145,8 +145,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="general.html">Cadastro Turma</a></li>
-                        <li><a class="" href="buttons.html">Gest√£o Turma</a></li>
+                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
+                        <li><a class="" href="gestao_turma.html">Gest„o Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -156,34 +156,34 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="general.html">Cadastro Disciplina</a></li>
-                        <li><a class="" href="buttons.html">Gest√£o Disciplina</a></li>
+                        <li><a class="" href="cadastro_disciplina.jsp">Cadastro Disciplina</a></li>
+                        <li><a class="" href="gestao_disciplina.html">Gest„o Disciplina</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_table"></i>
-                        <span>Avalia√ß√£o</span>
+                        <span>AvaliaÁ„o</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="basic_table.html">Notas e Frequencia</a></li>
-                        <li><a class="" href="basic_table.html">Hist√≥rico</a></li>
+                        <li><a class="" href="notas_frequencia.html">Notas e Frequencia</a></li>
+                        <li><a class="" href="historico.html">HistÛrico</a></li>
 
                     </ul>
                 </li>
                 <li>
-                    <a class="" href="chart-chartjs.html">
+                    <a class="" href="graficos.html">
                         <i class="icon_piechart"></i>
-                        <span>Gr√°ficos</span>
+                        <span>Gr·ficos</span>
 
                     </a>
 
                 </li>
                 <li>
-                    <a class="" href="chart-chartjs.html">
+                    <a class="" href="gestao_usuarios.html">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                        <span>Usu√°rios</span>
+                        <span>Usu·rios</span>
 
                     </a>
 
@@ -195,7 +195,70 @@
         </div>
     </aside>
     <!--Fim da Barra Lateral-->
+    <!--Inicio do Conte√É¬∫do Principal-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-files-o"></i> Cadastro Discente</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                        <li><i class="fa fa-user"></i></i>Discente</li>
+                        <li><i class="fa fa-files-o"></i>Cadastro Discente</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- Form validations -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">Formulario de Cadastro Discente</header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="CadastrarDiscente">
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cteacher" class="control-label col-lg-2">Matr√≠cula <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="csex" class="control-label col-lg-2">Sexo </label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="csex" type="text" name="teacherSex" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ccpf" class="control-label col-lg-2">CPF <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="ccpf" name="cpf"  minlength="4" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
+                                            <button class="btn btn-default" type="button">Cancelar</button> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
 
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+<!--Fim do Conte√É¬∫do Principal-->
 
 </section>
 <!-- container section end -->
