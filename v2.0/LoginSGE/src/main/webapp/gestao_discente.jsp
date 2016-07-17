@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+<%@page import="classes.Aluno"%>
+<%@page import="java.util.List"%>
 <html lang="pt">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -102,7 +105,7 @@
     </header>
     <!--header end-->
 
-          <!--Início da Barra Lateral-->
+    <!--Início da Barra Lateral-->
     <aside>
         <div id="sidebar"  class="nav-collapse ">
 
@@ -122,7 +125,7 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_discente.jsp">Cadastro Discente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDiscente">Cadastro Discente</a></li>
                         <li><a class="" href="/ProgrWeb/GestaoDiscentes">Gestão Discente</a></li>
                     </ul>
                 </li>
@@ -134,7 +137,7 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="cadastro_docente.jsp">Cadastro Docente</a></li>
+                        <li><a class="" href="cadastro_docente.html">Cadastro Docente</a></li>
                         <li><a class="" href="gestao_docente.html">Gestão Docente</a></li>
                     </ul>
                 </li>
@@ -145,7 +148,7 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
+                        <li><a class="" href="cadastro_turma.html">Cadastro Turma</a></li>
                         <li><a class="" href="gestao_turma.html">Gestão Turma</a></li>
                     </ul>
                 </li>
@@ -156,7 +159,7 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_disciplina.jsp">Cadastro Disciplina</a></li>
+                        <li><a class="" href="cadastro_disciplina.html">Cadastro Disciplina</a></li>
                         <li><a class="" href="gestao_disciplina.html">Gestão Disciplina</a></li>
                     </ul>
                 </li>
@@ -195,6 +198,51 @@
         </div>
     </aside>
     <!--Fim da Barra Lateral-->
+    
+    <!-- Listagem dos alunos matriculados -->
+    <section id="main-content">
+    	<section class="wrapper"> 
+		    <div class="panel-body">
+		    	
+				<table class="table bootstrap-datatable countries" id="alunos">
+					<thead>
+						<tr>
+							<th accesskey="matricula">Matricula</th>
+							<th>Nome</th>
+							<th>Nome da M�e</th>
+							<th>CEP</th>
+							<th>Data de Nascimento</th>
+							<th></th>
+						</tr>
+					</thead>   
+					
+						<%						    
+						  	List<Aluno> alunos =
+						      (List<Aluno>) request.getAttribute("Alunos");
+						
+						    if (alunos != null && !alunos.isEmpty()) {
+						      for (Aluno a : alunos) {
+						    %>
+						    <tr>
+						      <td><%=a.matricula%></td>
+						      <td><%=a.nome%></td>
+						      <td><%=a.nome_mae%></td>
+						      <td><%=a.cep%></td>
+						      <td><%=a.data_nascimento%></td>
+						      <td><a href="CadastrarDiscente?operacao=excluir&matricula=<%=a.matricula%>">Excluir</a></td> <!--  -->
+						    </tr>
+						    <%
+						      }
+						    }
+						 %>
+					
+				</table>
+				
+				
+			</div>
+		</section>
+	</section>
+
 
 </section>
 <!-- container section end -->
@@ -212,6 +260,12 @@
 <script src="js/form-validation-script.js"></script>
 <!--custome script for all page-->
 <script src="js/scripts.js"></script>
+
+<script type="text/javascript" >
+	/*var tabela = document.getElementById("alunos");
+	var corpoTabela = document.createElement('TBODY');
+	tabela.setAttribute("matricula", "999");*/
+</script>
 
 </body>
 </html>

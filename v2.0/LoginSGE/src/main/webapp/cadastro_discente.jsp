@@ -123,7 +123,7 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" href="cadastro_discente.jsp">Cadastro Discente</a></li>
-                        <li><a class="" href="gestao_discente.html">Gestão Discente</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoDiscentes">Gestão Discente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
