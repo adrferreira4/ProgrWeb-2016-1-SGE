@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="classes.Aluno"%>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
@@ -7,7 +8,7 @@
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
-
+	
     <title>SGE</title>
 
     <!-- Bootstrap CSS -->
@@ -218,48 +219,101 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="form-validate form-horizontal" id="feedback_form" method="get" action="CadastrarDiscente">
-                                    <div class="form-group ">
-                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="cnmae" class="control-label col-lg-2">Nome da Mãe <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="cnmae" name="mothername"  minlength="4" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="curl" class="control-label col-lg-2">Nome do Pai </label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="curl" type="text" name="fathername" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="ccep" class="control-label col-lg-2">CEP <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="ccep" name="cep"  minlength="4" type="text" required />
-                                        </div>
-                                    </div>
-                                        <div class="form-group ">
-                                            <label for="cendereco" class="control-label col-lg-2">Endereço <span class="required">*</span></label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control" id="cendereco" name="endereco" minlength="5" type="text" required />
-                                            </div>
-                                        </div>
-                                    <div class="form-group ">
-                                        <label for="cdate" class="control-label col-lg-2">Data de Nascimento </label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="cdate" name="dataNascimento" type="date" required/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-2 col-lg-10">
-                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
-                                            <button class="btn btn-default" type="button">Cancelar</button> 
-                                        </div>
-                                    </div>
+                                	<%
+                                		String operacao = (String) request.getAttribute("operacao");
+                                		if (operacao == "iniciarAlteracao"){
+                                			Aluno aluno = (Aluno) request.getAttribute("aluno");
+                                			request.setAttribute("matricula", aluno.matricula);
+                                	%>
+                                		<input class="form-control" id="matricula" name="matricula" type="hidden" value=<%=aluno.matricula %> >
+	                                    <div class="form-group ">
+	                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" value=<%=aluno.nome %> required> 
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="cnmae" class="control-label col-lg-2">Nome da Mãe <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="cnmae" name="mothername"  minlength="4" type="text" value=<%=aluno.nome_mae%> required />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="curl" class="control-label col-lg-2">Nome do Pai </label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="curl" type="text" name="fathername" value=<%=aluno.nome_pai%>/>
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="ccep" class="control-label col-lg-2">CEP <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="ccep" name="cep"  minlength="4" type="text" value=<%=aluno.cep%> required />
+	                                        </div>
+	                                    </div>
+	                                        <div class="form-group ">
+	                                            <label for="cendereco" class="control-label col-lg-2">Endereço <span class="required">*</span></label>
+	                                            <div class="col-lg-10">
+	                                                <input class="form-control" id="cendereco" name="endereco" minlength="5" type="text" value=<%=aluno.endereco%> required />
+	                                            </div>
+	                                        </div>
+	                                    <div class="form-group ">
+	                                        <label for="cdate" class="control-label col-lg-2">Data de Nascimento </label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="cdate" name="dataNascimento" type="date" value=<%=aluno.data_nascimento %> required/>
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <div class="col-lg-offset-2 col-lg-10">
+	                                        
+	                                            <button class="btn btn-primary" type="submit" name="operacao" value="alterar" form="feedback_form">Atualizar</button>
+	                                            <button class="btn btn-default" type="button">Cancelar</button> 
+	                                        </div>
+	                                    </div>
+	                                <%}else { %>
+	                                	<div class="form-group ">
+	                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" required />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="cnmae" class="control-label col-lg-2">Nome da Mãe <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="cnmae" name="mothername"  minlength="4" type="text" required />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="curl" class="control-label col-lg-2">Nome do Pai </label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="curl" type="text" name="fathername" />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="ccep" class="control-label col-lg-2">CEP <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="ccep" name="cep"  minlength="4" type="text" required />
+	                                        </div>
+	                                    </div>
+	                                        <div class="form-group ">
+	                                            <label for="cendereco" class="control-label col-lg-2">Endereço <span class="required">*</span></label>
+	                                            <div class="col-lg-10">
+	                                                <input class="form-control" id="cendereco" name="endereco" minlength="5" type="text" required />
+	                                            </div>
+	                                        </div>
+	                                    <div class="form-group ">
+	                                        <label for="cdate" class="control-label col-lg-2">Data de Nascimento </label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="cdate" name="dataNascimento" type="date" required/>
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <div class="col-lg-offset-2 col-lg-10">
+	                                        
+	                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
+	                                            <button class="btn btn-default" type="button">Cancelar</button> 
+	                                        </div>
+	                                    </div>
+	                                <%} %>
                                 </form>
                             </div>
 

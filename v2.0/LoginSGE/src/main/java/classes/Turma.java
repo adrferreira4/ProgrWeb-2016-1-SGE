@@ -6,26 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Professor {
+public class Turma {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	String matricula;
+	public int codigo;
 	
-	String nome;
+	public int matric_professor;
 	
-	String cpf;
+	public int serie;
 	
-	String sexo;
-	
-	public Professor( String nome, String cpf, String sexo){
-		this.nome = nome;
-		this.cpf = cpf;
-		this.sexo = sexo;
-	}
-	
-	public Professor(){
-		
-	}
+	public int ano;
 
 }

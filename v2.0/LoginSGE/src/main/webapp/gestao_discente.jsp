@@ -219,12 +219,12 @@
 						<%						    
 						  	List<Aluno> alunos =
 						      (List<Aluno>) request.getAttribute("Alunos");
-						
+							
 						    if (alunos != null && !alunos.isEmpty()) {
 						      for (Aluno a : alunos) {
 						    %>
 						    <tr>
-						      <td><%=a.matricula%></td>
+						      <td><a href="CadastrarDiscente?operacao=iniciarAlteracao&matricula=<%=a.matricula%>"><%=a.matricula%></a></td>
 						      <td><%=a.nome%></td>
 						      <td><%=a.nome_mae%></td>
 						      <td><%=a.cep%></td>

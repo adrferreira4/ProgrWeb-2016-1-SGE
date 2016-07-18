@@ -27,7 +27,7 @@ public class ProfessorController extends HttpServlet{
 			
 			//Checagem e execução da operação
 			if (op.equals("incluir")) {
-				ProfessorDao.InserirProfessor(matricula, nome, cpf, sexo);
+				ProfessorDao.InserirProfessor(nome, cpf, sexo);
 				msg = "Inclusão realizada com sucesso.";
 			} else if (op.equals("alterar")) {
 				ProfessorDao.AlterarProfessor(matricula, nome, cpf, sexo);
