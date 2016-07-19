@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="dao.ProfessorDao"%>
+<%@page import="classes.Professor"%>
+<%@page import="classes.Turma"%>
+<%@page import="java.util.List"%>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
@@ -102,7 +106,7 @@
     </header>
     <!--header end-->
 
-    <!--Início da Barra Lateral-->
+            <!--Início da Barra Lateral-->
     <aside>
         <div id="sidebar"  class="nav-collapse ">
 
@@ -123,7 +127,7 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" href="cadastro_discente.jsp">Cadastro Discente</a></li>
-                        <li><a class="" href="gestao_discente.html">Gestão Discente</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoDiscentes">Gestão Discente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -134,8 +138,8 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="general.html">Cadastro Docente</a></li>
-                        <li><a class="" href="buttons.html">Gestão Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDocente">Cadastro Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoDocente">Gestão Docente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -145,8 +149,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="general.html">Cadastro Turma</a></li>
-                        <li><a class="" href="buttons.html">Gestão Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarTurma">Cadastro Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoTurma">Gestão Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -156,8 +160,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="general.html">Cadastro Disciplina</a></li>
-                        <li><a class="" href="buttons.html">Gestão Disciplina</a></li>
+                        <li><a class="" href="cadastro_disciplina.jsp">Cadastro Disciplina</a></li>
+                        <li><a class="" href="gestao_disciplina.html">Gestão Disciplina</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -167,13 +171,13 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="basic_table.html">Notas e Frequencia</a></li>
-                        <li><a class="" href="basic_table.html">Histórico</a></li>
+                        <li><a class="" href="notas_frequencia.html">Notas e Frequencia</a></li>
+                        <li><a class="" href="historico.html">Histórico</a></li>
 
                     </ul>
                 </li>
                 <li>
-                    <a class="" href="chart-chartjs.html">
+                    <a class="" href="graficos.html">
                         <i class="icon_piechart"></i>
                         <span>Gráficos</span>
 
@@ -181,7 +185,7 @@
 
                 </li>
                 <li>
-                    <a class="" href="chart-chartjs.html">
+                    <a class="" href="gestao_usuarios.html">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <span>Usuários</span>
 
@@ -195,6 +199,52 @@
         </div>
     </aside>
     <!--Fim da Barra Lateral-->
+    
+    <!-- Listagem das Turmas -->
+    <section id="main-content">
+    	<section class="wrapper"> 
+		    <div class="panel-body">
+		    	
+				<table class="table bootstrap-datatable countries" id="alunos">
+					<thead>
+						<tr>
+							<th>C�digo</th>
+							<th>Professor</th>
+							<th>S�rie</th>
+							<th>Ano</th>
+							<th></th>
+						</tr>
+					</thead>   
+					
+					
+						<%						    
+						  	List<Turma> turmas =
+						      (List<Turma>) request.getAttribute("Turmas");
+							Professor prof;
+							
+						    if (turmas != null && !turmas.isEmpty()) {
+						      for (Turma t : turmas) {
+						    	  prof = ProfessorDao.getProfessor(t.matric_professor);
+						    %>
+						    <tr>
+						      <td><a href="CadastrarTurma?operacao=iniciarAlteracao&code=<%=t.codigo%>"><%=t.codigo%></a></td>
+						      <td><%=prof.nome%></td>
+						      <td><%=t.serie%></td>
+						      <td><%=t.ano%></td>
+						      <td><a href="CadastrarTurma?operacao=excluir&codigo=<%=t.codigo%>">Excluir</a></td> <!--  -->
+						    </tr>
+						    <%
+						      }
+						    }
+						 %>
+					
+				</table>
+				
+				
+			</div>
+		</section>
+	</section>
+
 
 
 </section>

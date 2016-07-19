@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="classes.Professor"%>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
@@ -134,8 +135,8 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="cadastro_docente.jsp">Cadastro Docente</a></li>
-                        <li><a class="" href="gestao_docente.html">Gestão Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDocente">Cadastro Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoDocente">Gestão Docente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -145,8 +146,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
-                        <li><a class="" href="gestao_turma.html">Gestão Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarTurma">Cadastro Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoTurma">Gestão Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -200,11 +201,11 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-files-o"></i> Cadastro Discente</h3>
+                    <h3 class="page-header"><i class="fa fa-files-o"></i> Cadastro Docente</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                        <li><i class="fa fa-user"></i></i>Discente</li>
-                        <li><i class="fa fa-files-o"></i>Cadastro Discente</li>
+                        <li><i class="fa fa-user"></i></i>Docente</li>
+                        <li><i class="fa fa-files-o"></i>Cadastro Docente</li>
                     </ol>
                 </div>
             </div>
@@ -212,40 +213,80 @@
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
-                        <header class="panel-heading">Formulario de Cadastro Discente</header>
+                        <header class="panel-heading">Formulario de Cadastro Docente</header>
                         <div class="panel-body">
                             <div class="form">
-                                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="CadastrarDiscente">
-                                    <div class="form-group ">
-                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="cteacher" class="control-label col-lg-2">MatrÃ­cula <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="csex" class="control-label col-lg-2">Sexo </label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="csex" type="text" name="teacherSex" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="ccpf" class="control-label col-lg-2">CPF <span class="required">*</span></label>
-                                        <div class="col-lg-10">
-                                            <input class="form-control " id="ccpf" name="cpf"  minlength="4" type="text" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-offset-2 col-lg-10">
-                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
-                                            <button class="btn btn-default" type="button">Cancelar</button> 
-                                        </div>
-                                    </div>
+                                <form class="form-validate form-horizontal" id="feedback_form" method="get" action="CadastrarDocente">
+                                	<%
+                                		String operacao = (String) request.getAttribute("operacao");
+                                		if (operacao == "iniciarAlteracao"){
+                                			Professor p = (Professor) request.getAttribute("professor");
+                                			request.setAttribute("matricula", p.matricula);
+                                	%>
+                                		<input class="form-control" id="matricula" name="matricula" type="hidden" value=<%=p.matricula%> >
+                                		<div class="form-group ">
+	                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <textarea class="form-control" id="cname" name="fullname" minlength="4" type="text" rows="1" cols="100" required ><%=p.nome%></textarea> 	
+	                                        </div>
+	                                    </div>
+	                                    <!-- <div class="form-group ">
+	                                        <label for="cteacher" class="control-label col-lg-2">Matrícula <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required />
+	                                        </div>
+	                                    </div> -->
+	                                    <div class="form-group ">
+	                                        <label for="csex" class="control-label col-lg-2">Sexo </label>
+	                                        <div class="col-lg-10">
+	                                            <textarea class="form-control " id="csex" type="text" name="teacherSex" rows="1" cols="100"><%=p.sexo %></textarea>
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="ccpf" class="control-label col-lg-2">CPF <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <textarea class="form-control " id="ccpf" name="cpf"  minlength="11" type="text" rows="1" cols="14" required ><%=p.cpf %></textarea>
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <div class="col-lg-offset-2 col-lg-10">
+	                                            <button class="btn btn-primary" type="submit" name="operacao" value="alterar" form="feedback_form">Atualizar</button>
+	                                            <a href="/ProgrWeb/GestaoDocente"><button class="btn btn-default" type="button" name="operacao" value="">Cancelar</button> </a>
+	                                        </div>
+	                                    </div>
+                                	
+                                	<%}else { %>
+	                                    <div class="form-group ">
+	                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" required />
+	                                        </div>
+	                                    </div>
+	                                    <!-- <div class="form-group ">
+	                                        <label for="cteacher" class="control-label col-lg-2">Matrícula <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required />
+	                                        </div>
+	                                    </div> -->
+	                                    <div class="form-group ">
+	                                        <label for="csex" class="control-label col-lg-2">Sexo </label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="csex" type="text" name="teacherSex" />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group ">
+	                                        <label for="ccpf" class="control-label col-lg-2">CPF <span class="required">*</span></label>
+	                                        <div class="col-lg-10">
+	                                            <input class="form-control " id="ccpf" name="cpf"  minlength="11" type="text" required />
+	                                        </div>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <div class="col-lg-offset-2 col-lg-10">
+	                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
+	                                            <a href="/ProgrWeb/GestaoDocente"><button class="btn btn-default" type="button" name="operacao" value="">Cancelar</button> </a>
+	                                        </div>
+	                                    </div>
+                                    <%} %>
                                 </form>
                             </div>
 

@@ -2,11 +2,17 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+
+import classes.Aluno;
 import classes.Professor;
 
 
@@ -29,48 +35,44 @@ public class ProfessorDao {
 	}
 	
 	public static void AlterarProfessor(int matricula, String nome, String cpf, String sexo) {
-		PreparedStatement statement = DAO.criarConexao("UPDATE PROFESSOR"
-													 + "		SET NOME = ?,"
-													 + "			CPF = ?,"
-													 + "			SEXO = ?"
-													 + "  WHERE MATRICULA = ? ");
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
 		
-		try {				
-			statement.setString(1, nome);		//Seta os parametros do SQL
-			statement.setString(2, cpf);
-			statement.setString(3, sexo);
-			statement.setInt(4, matricula);	
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			DAO.executarInstrucaoSql(statement);
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Professor original = em.find(Professor.class, matricula);
+		original.nome = nome;
+		original.cpf = cpf;
+		original.sexo = sexo;
+
+		em.getTransaction().commit();
+		em.close();
 	}
 	
 	public static void ExcluirProfessor(int matricula){
-		PreparedStatement statement = DAO.criarConexao("DELETE PROFESSOR WHERE MATRICULA = ?");
-
-		try {			
+		em = emf.createEntityManager();
+		em.getTransaction().begin();
 		
-		statement.setInt(1, matricula);		//Seta os parametros do SQL
+		Professor removido = em.find(Professor.class, matricula);
+		em.remove(removido);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	
+	public static List<Professor> listar() throws SQLException, ParseException {
 		
-		} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		}
+		em = emf.createEntityManager();
+				
+		Session secao = (Session) em.getDelegate();
+		Criteria criteria = secao.createCriteria(Professor.class);
+		List<Professor> docentes = criteria.list();
 		
-		try {
-		DAO.executarInstrucaoSql(statement);
-		} catch (Throwable e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		}
+		return docentes;
+	}
+	
+	public static Professor getProfessor(int matricula){
+		em = emf.createEntityManager();
+		
+		return em.find(Professor.class, matricula);
+		
 	}
 }

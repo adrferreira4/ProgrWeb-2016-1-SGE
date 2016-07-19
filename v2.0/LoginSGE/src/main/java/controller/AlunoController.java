@@ -44,16 +44,14 @@ public class AlunoController extends HttpServlet{
 			} else if (op.equals("iniciarAlteracao")){
 				Aluno a = AlunoDao.getAluno(matricula);
 				req.setAttribute("aluno", a);
-				req.setAttribute("matricula", matricula);
 				req.setAttribute("operacao", "iniciarAlteracao");
 				
-				
-				req.getRequestDispatcher("cadastro_discente.jsp").forward(req, resp);
-				
+				req.getRequestDispatcher("cadastro_discente.jsp").forward(req, resp);				
 				return;
 			} else if (op.equals("alterar")) {
 				AlunoDao.AlterarAluno(matricula, nome, nomeMae, nomePai, cep, endereco, dtNascimento);
 				msg = "Alteração realizada com sucesso.";
+				resp.sendRedirect("/ProgrWeb/GestaoDiscentes");
 			} else if (op.equals("excluir")) {
 				AlunoDao.ExlcuirAluno(matricula);
 				msg = "Exclusão realizada com sucesso.";

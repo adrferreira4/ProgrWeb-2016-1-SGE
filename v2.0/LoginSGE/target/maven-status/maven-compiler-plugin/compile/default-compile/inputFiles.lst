@@ -1,4 +1,5 @@
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\controller\Controller.java
+C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\controller\TurmaListController.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\classes\Disciplina.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\dao\TurmaDao.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\classes\Professor.java
@@ -7,6 +8,7 @@ C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrW
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\controller\TurmaController.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\dao\ProfessorDao.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\classes\Aluno.java
+C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\controller\ProfessorListController.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\classes\Turma.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\controller\ProfessorController.java
 C:\Users\Ygor\Documents\Academic material\UFG\Programação Web\ProjFinal\ProgrWeb-2016-1-SGE\trunk\v2.0\LoginSGE\src\main\java\dao\DisciplinaDao.java

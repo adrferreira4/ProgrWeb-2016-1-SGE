@@ -135,8 +135,8 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="cadastro_docente.jsp">Cadastro Docente</a></li>
-                        <li><a class="" href="gestao_docente.html">Gestão Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDocente">Cadastro Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoDocente">Gestão Docente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -146,8 +146,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
-                        <li><a class="" href="gestao_turma.html">Gestão Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarTurma">Cadastro Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoTurma">Gestão Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -225,35 +225,35 @@
                                 			Aluno aluno = (Aluno) request.getAttribute("aluno");
                                 			request.setAttribute("matricula", aluno.matricula);
                                 	%>
-                                		<input class="form-control" id="matricula" name="matricula" type="hidden" value=<%=aluno.matricula %> >
+                                		<input class="form-control" id="matricula" name="matricula" type="hidden" value=<%=aluno.matricula%> >
 	                                    <div class="form-group ">
 	                                        <label for="cname" class="control-label col-lg-2">Nome Completo <span class="required">*</span></label>
 	                                        <div class="col-lg-10">
-	                                            <input class="form-control" id="cname" name="fullname" minlength="4" type="text" value=<%=aluno.nome %> required> 
+	                                            <textarea class="form-control" id="cname" name="fullname" minlength="4" type="text" rows="1" cols="100" required><%=aluno.nome %></textarea> 
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group ">
 	                                        <label for="cnmae" class="control-label col-lg-2">Nome da Mãe <span class="required">*</span></label>
 	                                        <div class="col-lg-10">
-	                                            <input class="form-control " id="cnmae" name="mothername"  minlength="4" type="text" value=<%=aluno.nome_mae%> required />
+	                                            <textarea class="form-control " id="cnmae" name="mothername"  minlength="4" type="text" rows="1" cols="100" required ><%=aluno.nome_mae%></textarea>
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group ">
 	                                        <label for="curl" class="control-label col-lg-2">Nome do Pai </label>
 	                                        <div class="col-lg-10">
-	                                            <input class="form-control " id="curl" type="text" name="fathername" value=<%=aluno.nome_pai%>/>
+	                                            <textarea class="form-control " id="curl" type="text" name="fathername" rows="1" cols="100"> <%=aluno.nome_pai%></textarea>
 	                                        </div>
 	                                    </div>
 	                                    <div class="form-group ">
 	                                        <label for="ccep" class="control-label col-lg-2">CEP <span class="required">*</span></label>
 	                                        <div class="col-lg-10">
-	                                            <input class="form-control " id="ccep" name="cep"  minlength="4" type="text" value=<%=aluno.cep%> required />
+	                                            <textarea class="form-control " id="ccep" name="cep"  minlength="4" type="text" rows="1" cols="100" required ><%=aluno.cep%></textarea>
 	                                        </div>
 	                                    </div>
 	                                        <div class="form-group ">
 	                                            <label for="cendereco" class="control-label col-lg-2">Endereço <span class="required">*</span></label>
 	                                            <div class="col-lg-10">
-	                                                <input class="form-control" id="cendereco" name="endereco" minlength="5" type="text" value=<%=aluno.endereco%> required />
+	                                                <textarea class="form-control" id="cendereco" name="endereco" minlength="5" type="text" rows="1" cols="100" required ><%=aluno.endereco%></textarea>
 	                                            </div>
 	                                        </div>
 	                                    <div class="form-group ">
@@ -266,7 +266,7 @@
 	                                        <div class="col-lg-offset-2 col-lg-10">
 	                                        
 	                                            <button class="btn btn-primary" type="submit" name="operacao" value="alterar" form="feedback_form">Atualizar</button>
-	                                            <button class="btn btn-default" type="button">Cancelar</button> 
+	                                            <a href="/ProgrWeb/GestaoDiscente"><button class="btn btn-default" type="button" name="operacao" value="">Cancelar</button> </a>
 	                                        </div>
 	                                    </div>
 	                                <%}else { %>
@@ -310,7 +310,7 @@
 	                                        <div class="col-lg-offset-2 col-lg-10">
 	                                        
 	                                            <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
-	                                            <button class="btn btn-default" type="button">Cancelar</button> 
+	                                            <a href="/ProgrWeb/GestaoDiscente"><button class="btn btn-default" type="button" name="operacao" value="">Cancelar</button></a> 
 	                                        </div>
 	                                    </div>
 	                                <%} %>

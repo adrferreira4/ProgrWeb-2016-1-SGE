@@ -10,15 +10,15 @@ public class Professor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	String matricula;
+	public int matricula;
 	
-	String nome;
+	public String nome;
 	
-	String cpf;
+	public String cpf;
 	
-	String sexo;
+	public String sexo;
 	
-	public Professor( String nome, String cpf, String sexo){
+	public Professor(String nome, String cpf, String sexo){
 		this.nome = nome;
 		this.cpf = cpf;
 		this.sexo = sexo;

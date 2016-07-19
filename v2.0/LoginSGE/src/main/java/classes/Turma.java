@@ -17,5 +17,15 @@ public class Turma {
 	public int serie;
 	
 	public int ano;
+	
+	
+	public Turma(){
+		
+	}
 
+	public Turma(int matric_professor, int serie, int ano){
+		this.matric_professor = matric_professor;
+		this.serie = serie;
+		this.ano = ano;
+	}
 }

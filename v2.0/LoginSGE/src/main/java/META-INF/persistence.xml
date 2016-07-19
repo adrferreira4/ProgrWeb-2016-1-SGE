@@ -12,6 +12,9 @@
 
    <!-- entidade mapeada -->
    <class>classes.Aluno</class>
+   <class>classes.Professor</class>
+   <class>classes.Disciplina</class>
+   <class>classes.Turma</class>
 
    <properties>
   <!-- dados da conexao -->

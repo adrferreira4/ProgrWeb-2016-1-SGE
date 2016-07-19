@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<%@page import="dao.TurmaDao"%>
+<%@page import="classes.Turma"%>
+<%@page import="dao.ProfessorDao"%>
+<%@page import="classes.Professor"%>
+<%@page import="java.util.List" %>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
@@ -145,8 +150,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
-                        <li><a class="" href="gestao_turma.html">Gestão Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarTurma">Cadastro Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoTurma">Gestão Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -217,20 +222,67 @@
                         <div class="panel-body">
                             <div class="form">
                                 <form class="form-validate form-horizontal" id="feedback_form" method="get" action="CadastrarTurma">
-                                   <div class="form-group ">
-                                        <label for="ccod" class="control-label col-lg-2">CÃ³digo <span class="required">*</span></label>
+                                <%
+                               		String operacao = (String) request.getAttribute("operacao");
+                               		if (operacao == "iniciarAlteracao"){
+                               			Turma t = (Turma) request.getAttribute("turma");
+                               			request.setAttribute("codigo", t.codigo);
+                               	%>
+                               		<input class="form-control" id="ccod" name="code" type="hidden" value=<%=t.codigo%> >
+                               		
+                                    <div class="form-group ">
+                                        <label for="cteacher" class="control-label col-lg-2">Matrícula Professor <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="ccod" name="code"  minlength="4" type="text" required />
+                                            <!-- <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required /> -->
+                                            <select class="form-control" id="cteacher" name="teacherID" >
+                                            <%
+                                            	List<Professor> ps = ProfessorDao.listar();
+                                        		
+                                        		for(Professor prof : ps){
+                                        			if(prof.matricula == t.matric_professor){%>
+                                        				<option value=<%=prof.matricula%> selected><%=prof.nome %></option>
+                                        			<%}else {%>
+                                        				<option value=<%=prof.matricula%> ><%=prof.nome %></option>
+                                        		<%} } %>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="cteacher" class="control-label col-lg-2">MatrÃ­cula Professor <span class="required">*</span></label>
+                                        <label for="cgrade" class="control-label col-lg-2">Série <span class="required">*</span></label>
                                         <div class="col-lg-10">
-                                            <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required />
+                                            <input class="form-control " id="cgrade" type="number" name="grade" value=<%=t.serie %> required/>
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="cgrade" class="control-label col-lg-2">SÃ©rie <span class="required">*</span></label>
+                                        <label for="cyear" class="control-label col-lg-2">Ano <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="cyear" name="year"  minlength="4" type="number" value=<%=t.ano%> required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-primary" type="submit" name="operacao" value="alterar" form="feedback_form">Atualizar</button>
+                                            <a href="/ProgrWeb/GestaoTurma" ><button class="btn btn-default" type="button">Cancelar</button> </a>
+                                        </div>
+                                    </div>
+                               	<%}else { %>
+                                   
+                                    <div class="form-group ">
+                                        <label for="cteacher" class="control-label col-lg-2">Matrícula Professor <span class="required">*</span></label>
+                                        <div class="col-lg-10">
+                                            <!-- <input class="form-control " id="cteacher" name="teacherID"  minlength="4" type="text" required /> -->
+                                            <select class="form-control" id="cteacher" name="teacherID" >
+                                            <%
+                                            	List<Professor> ps = ProfessorDao.listar();
+                                        		
+                                        		for(Professor prof : ps){%>
+                                        			<option value=<%=prof.matricula%>><%=prof.nome %></option>
+                                        		<% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cgrade" class="control-label col-lg-2">Série <span class="required">*</span></label>
                                         <div class="col-lg-10">
                                             <input class="form-control " id="cgrade" type="number" name="grade" required/>
                                         </div>
@@ -244,9 +296,10 @@
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
                                             <button class="btn btn-primary" type="submit" name="operacao" value="incluir" form="feedback_form">Salvar</button>
-                                            <button class="btn btn-default" type="button">Cancelar</button> 
+                                            <a href="/ProgrWeb/GestaoTurma" ><button class="btn btn-default" type="button">Cancelar</button> </a>
                                         </div>
                                     </div>
+                                    <%} %>
                                 </form>
                             </div>
 

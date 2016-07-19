@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="classes.Professor"%>
+<%@page import="java.util.List"%>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
@@ -122,7 +124,7 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_discente.jsp">Cadastro Discente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDiscente">Cadastro Discente</a></li>
                         <li><a class="" href="/ProgrWeb/GestaoDiscentes">Gestão Discente</a></li>
                     </ul>
                 </li>
@@ -134,8 +136,8 @@
                     </a>
                     <ul class="sub">
 
-                        <li><a class="" href="cadastro_docente.jsp">Cadastro Docente</a></li>
-                        <li><a class="" href="gestao_docente.html">Gestão Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarDocente">Cadastro Docente</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoDocente">Gestão Docente</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -145,8 +147,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="cadastro_turma.jsp">Cadastro Turma</a></li>
-                        <li><a class="" href="gestao_turma.html">Gestão Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/CadastrarTurma">Cadastro Turma</a></li>
+                        <li><a class="" href="/ProgrWeb/GestaoTurma">Gestão Turma</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -195,6 +197,49 @@
         </div>
     </aside>
     <!--Fim da Barra Lateral-->
+    
+    <!-- Listagem dos Docentes -->
+    <section id="main-content">
+    	<section class="wrapper"> 
+		    <div class="panel-body">
+		    	
+				<table class="table bootstrap-datatable countries" id="alunos">
+					<thead>
+						<tr>
+							<th accesskey="matricula">Matricula</th>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>Sexo</th>
+							<th></th>
+						</tr>
+					</thead>   
+					
+					
+						<%						    
+						  	List<Professor> docentes =
+						      (List<Professor>) request.getAttribute("Professores");
+							
+						    if (docentes != null && !docentes.isEmpty()) {
+						      for (Professor p : docentes) {
+						    %>
+						    <tr>
+						      <td><a href="CadastrarDocente?operacao=iniciarAlteracao&matricula=<%=p.matricula%>"><%=p.matricula%></a></td>
+						      <td><%=p.nome%></td>
+						      <td><%=p.cpf%></td>
+						      <td><%=p.sexo%></td>
+						      <td><a href="CadastrarDocente?operacao=excluir&matricula=<%=p.matricula%>">Excluir</a></td> <!--  -->
+						    </tr>
+						    <%
+						      }
+						    }
+						 %>
+					
+				</table>
+				
+				
+			</div>
+		</section>
+	</section>
 </section>
 <!-- container section end -->
 

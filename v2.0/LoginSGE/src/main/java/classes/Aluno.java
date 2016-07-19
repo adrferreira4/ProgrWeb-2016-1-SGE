@@ -37,15 +37,7 @@ public class Aluno {
 		this.data_nascimento = dataNascimento;
 	}
 	
-	public Aluno(int matricula, String nome, String nomeMae, String nomePai, String cep, String endereco, Date dataNascimento){
-		this.matricula = matricula;
-		this.nome = nome;
-		this.nome_mae = nomeMae;
-		this.nome_pai = nomePai;
-		this.cep = cep;
-		this.endereco = endereco;
-		this.data_nascimento = dataNascimento;
-	}
+
 	
 	public Aluno(){
 		
